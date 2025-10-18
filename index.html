@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warly Martins - Desenvolvedor Full-Stack</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJdZ0YxXyRjWzHj50s0q17j/WvBw+L4D5bJ/51+z1z0q/z2e4l1h2f3q4x5q6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h2 class='header_titulo'>
+            <a href="#home">
+                <span>Dev</span>Warly<span>.</span>
+            </a>
+        </h2>
+
+        <button
+            class="menu-toggle"
+            aria-label="Abrir menu de navegação"
+            id="menu-toggle"
+        >
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+
+        <nav class="navbar" id="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div 
+            id="particles-js" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+        </div> 
+        
+        <div class="section-content">
+            <div class='hero_apresentacao'>
+                <h1 class='titulo_ap' id='nome'>Warly Martins</h1>
+                <h1 class='titulo_ap'>Desenvolvedor <span>Back-End</span></h1>
+                <p class='hero_paragrafo'>Desenvolvimento de sistemas Back-End robustos e eficientes em Java, focados em qualidade e fácil manutenção.</p>
+                
+                <div class='hero_buttons'>
+                    <a href="#sobre" class="button_sobre">Sobre Mim</a>
+                    <a href='pdfs/Currículo Main Dev - Warly Martins_20250925_133005_0000.pdf' class="Download-button" download>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="20" viewBox="0 0 640 512">
+                            <path d="M144 480C64.5 480 0 415.5 0 336c0-62.8 40.2-116.2 96.2-135.9c-.1-2.7-.2-5.4-.2-8.1c0-88.4 71.6-160 160-160c59.3 0 111 32.2 138.7 80.2C409.9 102 428.3 96 448 96c53 0 96 43 96 96c0 12.2-2.3 23.8-6.4 34.6C596 238.4 640 290.1 640 352c0 70.7-57.3 128-128 128H144zm79-167l80 80c9.4 9.4 24.6 9.4 33.9 0l80-80c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-39 39V184c0-13.3-10.7-24-24-24s-24 10.7-24 24V318.1l-39-39c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9z" fill="white"></path>
+                        </svg>
+                        <span>Download CV</span>
+                    </a>
+                </div>
+                
+                <ul class="example-2">
+                    <li class="icon-content">
+                        <a data-social="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/warly-dev/" target="_blank" rel="noopener noreferrer">
+                            <div class="filled"></div>
+                            <svg xml:space="preserve" viewBox="0 0 16 16" class="bi bi-linkedin" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="currentColor" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"></path>
+                            </svg>
+                        </a>
+                        <div class="tooltip">LinkedIn</div>
+                    </li>
+                    <li class="icon-content">
+                        <a data-social="github" aria-label="GitHub" href="https://www.github.com/" target="_blank" rel="noopener noreferrer">
+                            <div class="filled"></div>
+                            <svg xml:space="preserve" viewBox="0 0 16 16" class="bi bi-github" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"></path>
+                            </svg>
+                        </a>
+                        <div class="tooltip">GitHub</div>
+                    </li>
+                    <li class="icon-content">
+                        <a data-social="instagram" aria-label="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                            <div class="filled"></div>
+                            <svg xml:space="preserve" viewBox="0 0 16 16" class="bi bi-instagram" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="currentColor" d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"></path>
+                            </svg>
+                        </a>
+                        <div class="tooltip">Instagram</div>
+                    </li>
+                    <li class="icon-content">
+                        <a data-social="whatsapp" aria-label="WhatsApp" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">
+                            <div class="filled"></div>
+                            <i class="fab fa-whatsapp"></i> 
+                        </a>
+                        <div class="tooltip">WhatsApp</div>
+                    </li>
+                    <li class="icon-content">
+                        <a data-social="tiktok" aria-label="TikTok" href="https://wa.me/SEU_NUMERO_AQUI" target="_blank" rel="noopener noreferrer">
+                            <div class="filled"></div>
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <div class="tooltip">TikTok</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class='hero_image'>
+                <img
+                    src="images/my_photo.jpg"
+                    alt="Minha Foto de Perfil"
+                    class="profile-photo"
+                />
+            </div>
+        </div>
+    </section>
+
+    <main> 
+        <section id="sobre" class="about-me-section">
+            <div class="section-content-aboutMe">
+                <div class='div_img'>
+                    <img src="images/OIP.webp" alt="Warly Martins - Desenvolvedor" />
+                </div>
+
+                <div class="skills-list">
+                    <h3>Sobre Mim</h3>
+                    
+                    <p>
+                        Olá! Me chamo **Warly Martins**, tenho 19 anos e sou um desenvolvedor apaixonado por tecnologia e focado em aprendizado contínuo. Atualmente, estou cursando **Análise e Desenvolvimento de Sistemas** na FASEC. Minha paixão é transformar ideias complexas em soluções digitais eficientes e bem arquitetadas.
+                    </p>
+                    <p>
+                        Embora eu valorize a busca incessante por novos conhecimentos, possuo uma base sólida em **ReactJS** (para interfaces dinâmicas), **Node.js** (para APIs robustas) e **Banco de Dados SQL**. Estou sempre pronto para encarar novos desafios e contribuir com projetos inovadores.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#contato">
+                            <button class="contactButton">
+                                Contato
+                                <div class="iconButton">
+                                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section >
+
+        <section id="habilidades" class="skills-section">
+            <div class="section-header">
+                <h2>Minhas Habilidades</h2>
+                <p>Ferramentas e tecnologias que domino para construir soluções web.</p>
+            </div>
+            
+            <div class="skills-grid-container" id="skills-container">
+                </div>
+        </section>
+
+        <section id="projetos" class="projects-section">
+            
+            <div class="section-title-container">
+                <h2>Projetos Recentes</h2>
+                <div class="sublinhado_line_project"></div>
+            </div>
+            
+            <div class="section-content-cards">
+                <div class="projects-grid" id="projects-grid">
+                    </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contact-section">
+            <div class="contact-content-wrapper">
+                <h2 class="contact-title">
+                    <span class="title-traco">|</span> Fale Comigo
+                </h2>
+                <p class="contact-subtitle">
+                    Tenho interesse em novas oportunidades e colaborações. Use o formulário abaixo para enviar uma mensagem, ou entre em contato diretamente.
+                </p>
+
+                <div class="form-container">
+                    <form class="form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required 
+                            />
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required 
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea 
+                                name="message" 
+                                id="message" 
+                                rows="5" 
+                                required
+                            ></textarea>
+                        </div>
+
+                        <button class="form-submit-btn" type="submit">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content-wrapper">
+            
+            <div class="footer-brand">
+                <h3>DevWarly.</h3>
+                <p>Desenvolvimento focado em eficiência e inovação.</p>
+            </div>
+
+            <div class="footer-links-group">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social-group">
+                <h4>Conecte-se</h4>
+                <div class="social-icons">
+                    <a href="URL_GITHUB" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.344.723-4.045-1.61-4.045-1.61-.546-1.387-1.334-1.756-1.334-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.238 1.838 1.238 1.07 1.835 2.809 1.305 3.493 1.002.108-.778.419-1.305.762-1.605-2.665-.3-5.466-1.33-5.466-5.93 0-1.31.468-2.38 1.236-3.22-.124-.3-.536-1.524.118-3.176 0 0 1.006-.32 3.3-.314 1.137-.317 2.34-.475 3.54-.475 1.198 0 2.403.158 3.54.475 2.295 0 3.3.314 3.3.314.654 1.652.242 2.876.118 3.176.77.84 1.236 1.91 1.236 3.22 0 4.61-2.805 5.625-5.475 5.922.43.37.817 1.104.817 2.223 0 1.607-.015 2.898-.015 3.28 0 .32.22.697.825.575C20.565 21.802 24 17.305 24 12 24 5.373 18.627 0 12 0z"/></svg>
+                    </a>
+                    <a href="URL_LINKEDIN" target="_blank" rel="noopener noreferrer">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.529-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.77 7 2.417v6.818z"/></svg>
+                    </a>
+                    <a href="mailto:seuemail@exemplo.com">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-separator"></div>
+            <p>&copy; <span id="current-year"></span> DevWarly. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
