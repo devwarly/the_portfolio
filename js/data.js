@@ -6,31 +6,22 @@
 const projectList = [
     {
       id: 1,
-      title: "E-commerce API",
-      description: "API RESTful construída com Node.js e Express, utilizando PostgreSQL para gerenciamento de pedidos, estoque e autenticação de usuários. Serviço dedicado à geração e validação de tokens, utilizando Redis para cache de sessões.",
-      technologies: ["Node.js", "Express", "PostgreSQL", "JWT"],
+      title: "Chat FalaAi",
+      description: "O FalaAí é um chatbot desenvolvido em Python, utilizando a API do Google. O chat está em versão BETA, mas já funcional para conversação.",
+      technologies: ["Python", "Flask", "MySQL", "Argon2", "BootStrap"],
       imageUrl: "images/img_projects/falaai.png", 
-      link_github: "#", 
+      link_github: "https://github.com/devwarly/Chatbot-API-Python.git", 
       link_demo:"https://falaai.onrender.com/"
     },
     {
       id: 2,
-      title: "Sistema de Gerenciamento de Tarefas",
-      description: "Aplicação full-stack para organizar tarefas diárias. Front-end em React e API em Python (Django). Serviço dedicado à geração e validação de tokens, utilizando Redis para cache de sessões.",
-      technologies: ["React", "Python", "Django", "SQLite", "Hooks"],
-      imageUrl: "images/placeholder.jpg",
-      link_github: "#",
-      link_demo: "#"
-    },
-    {
-      id: 3,
-      title: "Microserviço de Autenticação",
-      description: "Serviço dedicado à geração e validação de tokens, utilizando Redis para cache de sessões. Serviço dedicado à geração e validação de tokens, utilizando Redis para cache de sessões.",
-      technologies: ["Node.js", "Redis", "Docker", "Typescript"],
-      imageUrl: "images/placeholder.jpg",
-      link_github: "#",
-      link_demo: null
-    },
+      title: "Site da turma ADS",
+      description: "Desenvolvi o site da minha turma de Análise e Desenvolvimento de Sistemas com intuíto de postar notícias sobre o curso e atlética do curso e també informações sobro curso em geral.",
+      technologies: ["Html", "Css", "Java", "SpringBoot", "Jwt", "API Rest"],
+      imageUrl: "images/img_projects/site_ads.png",
+      link_github: "https://github.com/devwarly/ads-news-project.git",
+      link_demo: "https://devwarly.github.io/ads-news-project/"
+    }
 ];
 
 const SKILLS_DATA = [
