@@ -9,6 +9,87 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- CSS PARA A NOTIFICAÇÃO TOAST (PERSONALIZADA E RESPONSIVA) -->
+    <style>
+        /* Estado inicial: oculto e fora da tela */
+        .toast-hidden {
+            visibility: hidden;
+            opacity: 0;
+            /* Inicia fora da tela para transição suave */
+            transform: translateY(-100%); 
+        }
+
+        #toast-notification {
+            position: fixed;
+            /* ALTERADO: Posicionado no topo, centralizado */
+            top: 20px; 
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 90%;
+            min-width: 300px;
+            z-index: 1000;
+            transition: all 0.5s ease-in-out;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .toast-content {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .toast-message-wrapper {
+            flex-grow: 1;
+            padding: 0 15px;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .toast-icon {
+            font-size: 24px;
+            line-height: 1;
+            margin-right: 10px;
+        }
+
+        /* Tipos de Toast */
+        .toast-success {
+            background-color: #4CAF50;
+            /* Verde */
+        }
+
+        .toast-error {
+            background-color: #f44336;
+            /* Vermelho */
+        }
+
+        .toast-loading {
+            background-color: #2196F3;
+            /* Azul */
+        }
+
+        /* Botão Fechar */
+        .toast-close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0 5px;
+            margin-left: auto;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 600px) {
+            #toast-notification {
+                min-width: 90%;
+                top: 10px; /* Ajuste para mobile */
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -199,10 +280,8 @@
                     mensagem.
                 </p>
 
-                <!-- DIV ESSENCIAL PARA O JAVASCRIPT EXIBIR O STATUS -->
-                <div id="message-status" role="alert">
-                    <!-- Status da mensagem (sucesso/erro) será inserido aqui pelo JS -->
-                </div>
+                <!-- A div #message-status foi removida, pois a notificação Toast a substitui. -->
+
             </div>
 
             <div class="form-container">
@@ -284,33 +363,106 @@
             <p>&copy; <span id="current-year"></span> DevWarly. Todos os direitos reservados.</p>
         </div>
     </footer>
+    
+    <!-- ESTRUTURA DA NOTIFICAÇÃO TOAST (VISUAL) -->
+    <div id="toast-notification" class="toast-hidden" aria-live="assertive">
+        <div id="toast-content" class="toast-content">
+            <div class="toast-icon"></div>
+            <div class="toast-message-wrapper">
+                <p id="toast-message"></p>
+            </div>
+            <button id="toast-close-btn" class="toast-close-btn" aria-label="Fechar notificação">
+                &times;
+            </button>
+        </div>
+    </div>
 
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // A URL agora é RELATIVA. O Vercel interceptará esta URL e a redirecionará
-        // (via proxy) para o seu backend HTTP no Oracle Cloud.
+        // Função para mostrar a notificação Toast (Sucesso, Erro, Loading)
+        function showToast(type, message) {
+            const toast = document.getElementById('toast-notification');
+            const content = document.getElementById('toast-content');
+            const msgElement = document.getElementById('toast-message');
+            const iconElement = content.querySelector('.toast-icon');
+            const closeBtn = document.getElementById('toast-close-btn');
+
+            // Limpa classes e estilos antigos
+            content.className = 'toast-content';
+            iconElement.innerHTML = '';
+            closeBtn.style.display = 'none';
+
+            // Define o conteúdo
+            msgElement.textContent = message;
+
+            let autoClose = true;
+
+            // Define o tipo e o ícone
+            switch (type) {
+                case 'success':
+                    content.classList.add('toast-success');
+                    iconElement.innerHTML = '<i class="fas fa-check-circle"></i>';
+                    break;
+                case 'error':
+                    content.classList.add('toast-error');
+                    iconElement.innerHTML = '<i class="fas fa-times-circle"></i>';
+                    break;
+                case 'loading':
+                    content.classList.add('toast-loading');
+                    iconElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i>'; // Spinner para loading
+                    autoClose = false; // Não fecha automaticamente no estado de loading
+                    break;
+            }
+
+            // Exibe o Toast
+            toast.classList.remove('toast-hidden');
+
+            // Lógica de fechamento automático ou manual
+            if (autoClose) {
+                closeBtn.style.display = 'block';
+                setTimeout(() => {
+                    toast.classList.add('toast-hidden');
+                }, 5000); // 5 segundos
+            }
+            
+            // Permite fechar manualmente
+            closeBtn.onclick = () => {
+                toast.classList.add('toast-hidden');
+            };
+        }
+
+
+        // Lógica Principal do Formulário
+        // A URL agora é RELATIVA para funcionar com o proxy Vercel
         const apiUrl = '/api/send_email';
 
         const form = document.getElementById('contact-form');
         const submitButton = document.getElementById('submit-button');
-        const messageStatus = document.getElementById('message-status');
 
         if (form) {
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
 
+                // Garante que o alerta nativo não seja acionado, mesmo se houver erro
+                try {
+                    // Impede qualquer envio nativo de formulário
+                    e.stopImmediatePropagation();
+                } catch (err) {
+                    console.warn("Navegador não suporta stopImmediatePropagation.");
+                }
+
                 submitButton.disabled = true;
                 submitButton.textContent = 'Enviando...';
-                messageStatus.textContent = '';
-                messageStatus.className = 'status-message';
 
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData.entries());
 
-                // Limpa o console de erros de extensão antes de enviar
                 console.clear();
                 console.log("Dados do formulário enviados:", data);
+
+                // 1. Mostrar estado de carregamento
+                showToast('loading', 'Enviando mensagem, aguarde...');
 
                 try {
                     const response = await fetch(apiUrl, {
@@ -324,22 +476,20 @@
                     const result = await response.json();
 
                     if (response.ok) {
-                        messageStatus.textContent = result.message || 'Mensagem enviada com sucesso!';
-                        messageStatus.classList.remove('status-error');
-                        messageStatus.classList.add('status-success');
+                        // 2. Mostrar sucesso
+                        showToast('success', result.message || 'Mensagem enviada com sucesso! Em breve entrarei em contato.');
                         form.reset();
                     } else {
-                        messageStatus.textContent = result.message || 'Ocorreu um erro no servidor.';
-                        messageStatus.classList.remove('status-success');
-                        messageStatus.classList.add('status-error');
+                        // 3. Mostrar erro do servidor
+                        showToast('error', result.message || 'Falha ao enviar mensagem. Tente novamente.');
                     }
 
                 } catch (error) {
                     console.error("Erro de rede ou servidor:", error);
-                    messageStatus.textContent = 'Erro de rede: Verifique sua conexão ou a URL da API.';
-                    messageStatus.classList.remove('status-success');
-                    messageStatus.classList.add('status-error');
+                    // 3. Mostrar erro de rede
+                    showToast('error', 'Erro de conexão: O servidor não respondeu. Verifique sua rede.');
                 } finally {
+                    // O estado de loading será substituído pelo sucesso/erro
                     submitButton.disabled = false;
                     submitButton.textContent = 'Enviar Mensagem';
                 }
