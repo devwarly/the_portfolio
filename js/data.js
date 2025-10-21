@@ -25,17 +25,17 @@ const projectList = [
 ];
 
 const SKILLS_DATA = [
+    { name: "Python", percentage: 40, iconClass: "fab fa-python", color: "#3776AB" },
+    { name: "Java", percentage: 60, iconClass: "fab fa-java", color: "#ff570fff" },
     { name: "HTML5", percentage: 90, iconClass: "fab fa-html5", color: "#E34F26" },
     { name: "CSS3", percentage: 85, iconClass: "fab fa-css3-alt", color: "#1572B6" },
-    { name: "JavaScript", percentage: 80, iconClass: "fab fa-js-square", color: "#F7DF1E" },
-    { name: "React", percentage: 75, iconClass: "fab fa-react", color: "#61DAFB" },
-    { name: "Node.js", percentage: 70, iconClass: "fab fa-node-js", color: "#339933" },
-    { name: "Sass/SCSS", percentage: 85, iconClass: "fab fa-sass", color: "#CC6699" },
+    { name: "JavaScript", percentage: 50, iconClass: "fab fa-js-square", color: "#F7DF1E" },
+    { name: "React", percentage: 35, iconClass: "fab fa-react", color: "#61DAFB" },
+    { name: "Node.js", percentage: 30, iconClass: "fab fa-node-js", color: "#339933" },
     { name: "Bootstrap", percentage: 70, iconClass: "fab fa-bootstrap", color: "#7952B3" },
-    { name: "Git", percentage: 80, iconClass: "fab fa-git-alt", color: "#F05032" },
-    { name: "Python", percentage: 60, iconClass: "fab fa-python", color: "#3776AB" },
-    { name: "Java", percentage: 80, iconClass: "fab fa-java", color: "#ff570fff" },
+    { name: "Git", percentage: 50, iconClass: "fab fa-git-alt", color: "#F05032" },
     { name: "Docker", percentage: 30, iconClass: "fab fa-docker", color: "#0fff5fff" },
+    { name: "PostgresSQL / MySQL", percentage: 60, iconClass: "fa-solid fa-database", color: "#0f77ffff" },
 ];
 
 const SECTIONS = ['home', 'sobre', 'habilidades', 'projetos', 'contato'];
