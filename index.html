@@ -7,7 +7,7 @@
     <title>Warly Martins - Desenvolvedor Full-Stack</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJdZ0YxXyRjWzHj50s0q17j/WvBw+L4D5bJ/51+z1z0q/z2e4l1h2f3q4x5q6Q=="
+        xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJdZ0YxXyRjWzHj50s0q17j/WvBw+L4D5bJ/51+z1z0q/z2e4l1h2f3q4x5q6Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -208,7 +208,8 @@
             </div>
 
             <div class="form-container">
-                <form class="form" id="contact-form" action="http://168.138.144.255/send_email" method="POST">
+                <!-- CORREÇÃO APLICADA AQUI: REMOVIDO o action="http://..." que causava o erro de Mixed Content -->
+                <form class="form" id="contact-form" method="POST">
 
                     <div class="form-group">
                         <label for="name">Nome Completo</label>
