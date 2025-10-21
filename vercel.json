@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/send_email",
+      "destination": "http://168.138.144.255/send_email"
+    }
+  ]
+}

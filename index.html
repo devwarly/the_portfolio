@@ -208,7 +208,7 @@
             </div>
 
             <div class="form-container">
-                <form class="form" id="contact-form" action="http://168.138.144.255/send_email" method="POST"> 
+                <form class="form" id="contact-form" action="http://168.138.144.255/send_email" method="POST">
 
                     <div class="form-group">
                         <label for="name">Nome Completo</label>
@@ -289,73 +289,65 @@
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
     <script>
-        document.getElementById('contact-form').addEventListener('submit', async function (event) {
-            event.preventDefault(); // Impede o envio padrão do formulário
+        // A URL agora é RELATIVA. O Vercel interceptará esta URL e a redirecionará
+        // (via proxy) para o seu backend HTTP no Oracle Cloud.
+        const apiUrl = '/api/send_email';
 
-            const form = event.target;
-            const statusDiv = document.getElementById('message-status');
-            const submitButton = document.getElementById('submit-button');
+        const form = document.getElementById('contact-form');
+        const submitButton = document.getElementById('submit-button');
+        const messageStatus = document.getElementById('message-status');
 
-            const formData = new FormData(form);
-            // Converte os dados do formulário para um objeto JSON
-            const data = Object.fromEntries(formData.entries());
+        if (form) {
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
 
-            // A partir daqui, o script espera que statusDiv e submitButton existam.
-            if (!statusDiv || !submitButton) {
-                console.error("Erro: Elementos de status ou botão de envio não encontrados no DOM.");
-                return;
-            }
+                submitButton.disabled = true;
+                submitButton.textContent = 'Enviando...';
+                messageStatus.textContent = '';
+                messageStatus.className = 'status-message';
 
-            // Limpa e esconde o status anterior
-            statusDiv.textContent = '';
-            statusDiv.className = '';
-            statusDiv.style.display = 'none';
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
 
-            // Desabilita o botão e mostra o loading
-            submitButton.disabled = true;
-            submitButton.textContent = 'Enviando...';
+                // Limpa o console de erros de extensão antes de enviar
+                console.clear();
+                console.log("Dados do formulário enviados:", data);
 
-            const apiUrl = form.action;
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    });
 
-            try {
-                // Envia os dados como JSON para o backend Flask
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                });
+                    const result = await response.json();
 
-                const result = await response.json();
+                    if (response.ok) {
+                        messageStatus.textContent = result.message || 'Mensagem enviada com sucesso!';
+                        messageStatus.classList.remove('status-error');
+                        messageStatus.classList.add('status-success');
+                        form.reset();
+                    } else {
+                        messageStatus.textContent = result.message || 'Ocorreu um erro no servidor.';
+                        messageStatus.classList.remove('status-success');
+                        messageStatus.classList.add('status-error');
+                    }
 
-                // Exibe o status
-                statusDiv.textContent = result.message;
-                statusDiv.style.display = 'block';
-
-                if (result.success) {
-                    // Adiciona classe CSS para sucesso
-                    statusDiv.classList.remove('status-error');
-                    statusDiv.classList.add('status-success');
-                    form.reset(); // Limpa o formulário em caso de sucesso
-                } else {
-                    // Adiciona classe CSS para erro
-                    statusDiv.classList.remove('status-success');
-                    statusDiv.classList.add('status-error');
+                } catch (error) {
+                    console.error("Erro de rede ou servidor:", error);
+                    messageStatus.textContent = 'Erro de rede: Verifique sua conexão ou a URL da API.';
+                    messageStatus.classList.remove('status-success');
+                    messageStatus.classList.add('status-error');
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Enviar Mensagem';
                 }
-
-            } catch (error) {
-                // Erro de rede ou servidor não acessível
-                console.error('Erro de rede ou servidor:', error);
-                statusDiv.textContent = 'Erro de conexão com o servidor.';
-                statusDiv.classList.add('status-error');
-                statusDiv.style.display = 'block';
-            } finally {
-                // Reabilita o botão
-                submitButton.disabled = false;
-                submitButton.textContent = 'Enviar Mensagem';
-            }
-        });
+            });
+        } else {
+            console.error("Formulário de contato não encontrado.");
+        }
     </script>
 </body>
 
