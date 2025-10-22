@@ -769,10 +769,10 @@ ul {
 }
 
 .skills-section h2 {
-    font-size: 2.8em;
+    font-size: 2em;
     font-weight: 700;
     margin-bottom: 15px;
-    color: var(--text-light);
+    color: var(--primary-color);
 }
 
 .skills-section p {
