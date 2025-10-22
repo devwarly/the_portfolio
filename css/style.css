@@ -1002,6 +1002,7 @@ ul {
     margin-top: auto;
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .project-links a {
