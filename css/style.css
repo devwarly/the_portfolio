@@ -983,6 +983,8 @@ ul {
 /* TAGS E LINKS */
 .tech-tags {
     margin: 15px 0 20px 0;
+    display: flex;       /* 1. Transforma em um container flexível */
+    flex-wrap: wrap;
 }
 
 .tag {
@@ -993,6 +995,7 @@ ul {
     font-size: 0.9em;
     margin-right: 8px;
     font-weight: 500;
+    margin-bottom: 5px;
 }
 
 .project-links {
