@@ -48,8 +48,8 @@ body {
 .whatzapp_flutuante_icon {
     position: fixed;
     z-index: 100;
-    top: 90%;
-    right: 3%;
+    top: 93%;
+    right: 5%;
     cursor: pointer;
     animation: anin 1s ease-in-out infinite;
 }
