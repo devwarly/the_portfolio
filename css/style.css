@@ -48,30 +48,21 @@ body {
 .whatzapp_flutuante_icon {
     position: fixed;
     z-index: 100;
-    top: 93%;
+    top: 90%;
     right: 2%;
     cursor: pointer;
     animation: anin 1s ease-in-out infinite;
 }
 
 .whatzapp_flutuante_icon i {
-   /* Define a cor de fundo (o "espaço" do ícone) */
-    background-color: #00e21e; /* Exemplo: um cinza claro */
-    
-    /* Opcional: Para deixar o fundo circular ou arredondado */
-    border-radius: 50%; /* Faz o fundo ser um círculo */
-    
-    /* Opcional: Para controlar o espaço interno entre o ícone e o fundo */
-    
-    /* Opcional: Se o ícone for muito pequeno, você pode definir tamanho */
-    display: inline-block; /* Garante que as propriedades de tamanho e fundo funcionem bem */
-    width: 50px; /* Exemplo de largura */
-    height: 50px; /* Exemplo de altura */
-    text-align: center; /* Centraliza o ícone dentro do fundo (se você usar width/height) */
-    line-height: 24px; /* Centraliza verticalmente (se você usar height) */
-    
-    /* Opcional: Para mudar a cor do ícone em si (o desenho) */
-    color: #ffffff; /* Exemplo: cor preta escura para o ícone */
+    background-color: #00e21e;
+    border-radius: 50%;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 24px;
+    color: #ffffff;
     font-size: 2.5rem;
     padding-top: 13px;
 }
