@@ -1,14 +1,6 @@
-// ==============================================
-// js/main.js
-// Contém toda a lógica de manipulação de DOM e eventos.
-// Depende do data.js para as constantes SKILLS_DATA, projectList e SECTIONS.
-// ==============================================
+
 
 document.addEventListener('DOMContentLoaded', () => {
-
-    // ------------------------------------------
-    // 1. Lógica do Header (Menu Mobile e Scroll Spy)
-    // ------------------------------------------
     const menuToggle = document.getElementById('menu-toggle');
     const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('.navbar a');

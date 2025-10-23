@@ -1,8 +1,3 @@
-// ==============================================
-// js/data.js
-// Contém os dados estruturados do portfólio.
-// ==============================================
-
 const projectList = [
     {
       id: 1,
