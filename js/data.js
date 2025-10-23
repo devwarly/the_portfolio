@@ -36,6 +36,7 @@ const SKILLS_DATA = [
     { name: "Git", percentage: 50, iconClass: "fab fa-git-alt", color: "#F05032" },
     { name: "Docker", percentage: 30, iconClass: "fab fa-docker", color: "#0fff5fff" },
     { name: "PostgresSQL / MySQL", percentage: 60, iconClass: "fa-solid fa-database", color: "#0f77ffff" },
+    { name: "Linux", percentage: 60, iconClass: "fab fa-linux", color: "rgba(255, 255, 255, 1)" },
 ];
 
 const SECTIONS = ['home', 'sobre', 'habilidades', 'projetos', 'contato'];

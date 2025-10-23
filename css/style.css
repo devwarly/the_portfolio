@@ -103,6 +103,7 @@ section {
 
 .main-header .navbar a:hover {
     color: var(--primary-color);
+    transform: translateY(-1px);
 }
 
 .main-header .navbar a.active {
